@@ -1,6 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Question, Choice
 
 
 def index(request):
-    return HttpResponse("Hello, world!")
+    latest_question_list = Question.objects.all()
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'polls/index.html', context)
+
+def detail(request, question_id):
+    pass
+
+def results(request, question_id):
+    pass
+
+def vote(request, question_id):
+    pass
